@@ -5,11 +5,13 @@ message: >-
   Software criado com suporte de inteligência artificial.
   Created with artificial-intelligence support.
 type: software
-title: "Ghostprompter: teleprompter que segue a voz e grava tela, webcam e microfone para aulas e apresentações"
+title: "Ghostprompter: a voice-following teleprompter and screen/webcam recorder for lectures and presentations"
 authors:
   - given-names: Luis
     family-names: Bei
     orcid: "https://orcid.org/0009-0002-4650-9948"
+repository-code: "https://github.com/luisbei/ghostprompter"
+url: "https://github.com/luisbei/ghostprompter"
 version: 1.2.0
 date-released: "2026-11-04"
 license: MIT
