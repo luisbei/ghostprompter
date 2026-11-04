@@ -5,6 +5,11 @@ lectures and presentations.*
 
 **English** · [Português](#português) · [Español](#español)
 
+<p align="center">
+  <img src="docs/images/prompter-follow-voice.gif" alt="The teleprompter following the speaker's voice: words already read are dimmed and the current line stays on the guide" width="640">
+  <br><em>"Follow my voice": the script scrolls with your speech, offline. Words already read are dimmed; cues like (next slide) are skipped.</em>
+</p>
+
 Ghostprompter records **screen + webcam + microphone** and shows a **floating teleprompter that is kept out of the
 recording** (see the limits in *Teleprompter kept out of the recording*, below).
 
@@ -42,6 +47,9 @@ Uninstalling does **not** delete your recordings or settings. To delete settings
 `%LOCALAPPDATA%\Ghostprompter`.
 
 ## How to use
+
+<img src="docs/images/panel-en.png" alt="Ghostprompter control panel in English" width="340" align="right">
+
 1. **Screen**: choose the screen (or window) to record. Tick "Include system audio" to record the computer's sound.
 2. **Camera / Microphone**: choose your devices. The bar shows the microphone level. Camera **Mode**:
    - *Separate file* — records `camera.mp4` separately (best for editing later).
@@ -108,7 +116,9 @@ With "Follow my voice", the dot in the prompter's corner shows the state: green 
 ### Cues (not read aloud)
 Text in `[brackets]` or `(parentheses)` becomes a highlighted cue that **does not need to be spoken** — "Follow my
 voice" skips it. E.g. `[PAUSE]`, `(next slide)`. Markdown **headings** (`# ...`) do not need to be read either.
-Supported Markdown: headings, **bold**, *italic*, lists, quotes and `---`. See `exemplo-roteiro.md`.
+Supported Markdown: headings, **bold**, *italic*, lists, quotes and `---`. See [`example-script.md`](example-script.md).
+
+<br clear="right">
 
 ## Privacy
 Nothing leaves your computer: recordings, scripts and settings stay on your disk, and the network is locked in the
@@ -122,6 +132,9 @@ code itself. Details and how to verify it yourself: [PRIVACY.md](PRIVACY.md).
 - The installed and development versions share the same settings and speech models (`%LOCALAPPDATA%\Ghostprompter`;
   users of version 1.1 have their data moved from `%APPDATA%\gravador-teleprompter` on first launch — if that fails,
   the panel warns about it).
+
+## Reporting security issues
+Please report vulnerabilities privately — see [SECURITY.md](SECURITY.md).
 
 ## License
 Code under the **MIT License** — see [LICENSE](LICENSE). Copyright (c) 2026 Luis Bei.
@@ -148,6 +161,8 @@ apresentações.*
 
 Grava **tela + webcam + microfone** e mostra um **teleprompter flutuante que fica de fora da gravação** (veja os
 limites em *Teleprompter fora da gravação*, abaixo).
+
+<p align="center"><img src="docs/images/prompter-follow-voice.gif" alt="Teleprompter seguindo a voz" width="560"></p>
 
 ### Propósito e uso responsável
 
