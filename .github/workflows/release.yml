@@ -1,0 +1,67 @@
+# Gera o instalador do Windows a partir do código deste repositório e publica a versão no GitHub.
+# Roda quando uma tag "v*" (ex.: v1.2.0) é enviada, ou manualmente (só gera o instalador, sem publicar).
+# O instalador publicado é sempre o gerado aqui, a partir do commit da tag — nunca um arquivo enviado à mão.
+name: Build e release (Windows)
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+    permissions:
+      contents: write   # necessário só para criar a página da versão
+    steps:
+      # ações oficiais fixadas pelo hash do commit (não pela tag, que poderia ser movida)
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Instalar dependências exatamente como no package-lock.json
+        run: npm ci
+
+      - name: Conferir a versão da tag
+        if: startsWith(github.ref, 'refs/tags/v')
+        shell: pwsh
+        run: |
+          $pkg = (Get-Content package.json -Raw | ConvertFrom-Json).version
+          if ("v$pkg" -ne "${{ github.ref_name }}") { throw "A tag ${{ github.ref_name }} não bate com a versão $pkg do package.json" }
+
+      - name: Gerar o instalador
+        run: npx electron-builder --win nsis --x64 --publish never
+
+      - name: Calcular SHA-256
+        shell: pwsh
+        run: |
+          $exe = Get-ChildItem release -Filter 'Ghostprompter-Setup-*.exe' | Select-Object -First 1
+          $h = (Get-FileHash $exe.FullName -Algorithm SHA256).Hash.ToLower()
+          "$h  $($exe.Name)" | Out-File release/SHA256SUMS.txt -Encoding ascii
+          Get-Content release/SHA256SUMS.txt
+
+      - name: Guardar o instalador como artefato da execução
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: ghostprompter-windows
+          path: |
+            release/Ghostprompter-Setup-*.exe
+            release/SHA256SUMS.txt
+
+      - name: Publicar a versão no GitHub (só em tags)
+        if: startsWith(github.ref, 'refs/tags/v')
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $exe = (Get-ChildItem release -Filter 'Ghostprompter-Setup-*.exe' | Select-Object -First 1).FullName
+          $notes = "docs/release-notes/${{ github.ref_name }}.md"
+          if (-not (Test-Path $notes)) { $notes = $null }
+          $ghArgs = @('${{ github.ref_name }}', $exe, 'release/SHA256SUMS.txt', 'docs/LEIA-ME.txt', '--title', 'Ghostprompter ${{ github.ref_name }}', '--verify-tag')
+          if ($notes) { $ghArgs += @('--notes-file', $notes) } else { $ghArgs += @('--generate-notes') }
+          gh release create @ghArgs

@@ -1,0 +1,14 @@
+# dependências e saídas de build (o instalador vai para o GitHub Releases, não para o código)
+node_modules/
+release/
+dist/
+
+# arquivos locais / temporários
+*.log
+*.webm
+*.mp4
+.DS_Store
+Thumbs.db
+
+# arquivos internos de revisão
+REVISAO-CODEX*.md

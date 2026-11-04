@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self' blob: mediastream:">
+  <title>Ghostprompter</title>
+  <link rel="stylesheet" href="control.css">
+</head>
+<body>
+  <header>
+    <h1>👻 Ghostprompter</h1>
+    <div class="head-right">
+      <select id="uiLang" data-i18n-title="ui.lang">
+        <option value="auto" data-i18n="ui.auto">Automático</option>
+        <option value="pt">Português</option>
+        <option value="es">Español</option>
+        <option value="en">English</option>
+      </select>
+      <span id="status" class="status" data-i18n="status.ready">Pronto</span>
+    </div>
+  </header>
+
+  <section class="card">
+    <h2 data-i18n="card.screen">Tela</h2>
+    <div class="row">
+      <select id="screenSel" class="grow"></select>
+      <button id="refreshSrc" data-i18n-title="refresh.title">⟳</button>
+    </div>
+    <img id="screenThumb" class="thumb" alt="">
+    <div class="row">
+      <label>FPS
+        <select id="fps"><option value="30">30</option><option value="60">60</option></select>
+      </label>
+      <label class="chk"><input type="checkbox" id="sysAudio"> <span data-i18n="sysAudio"></span></label>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2 data-i18n="card.camera">Câmera</h2>
+    <label class="chk"><input type="checkbox" id="camOn"> <span data-i18n="camOn"></span></label>
+    <select id="camSel"></select>
+    <div class="row">
+      <label class="grow"><span data-i18n="camMode"></span>
+        <select id="camMode" class="grow">
+          <option value="files" data-i18n="camMode.files"></option>
+          <option value="overlay" data-i18n="camMode.overlay"></option>
+          <option value="both" data-i18n="camMode.both"></option>
+        </select>
+      </label>
+    </div>
+    <div id="overlayOpts" class="row">
+      <label><span data-i18n="camShape"></span>
+        <select id="camShape">
+          <option value="circle" data-i18n="shape.circle"></option>
+          <option value="rounded" data-i18n="shape.rounded"></option>
+        </select>
+      </label>
+      <label class="chk"><input type="checkbox" id="camMirror"> <span data-i18n="camMirror"></span></label>
+    </div>
+    <div id="overlayHint" class="muted small"></div>
+    <video id="camPreview" autoplay muted playsinline></video>
+  </section>
+
+  <section class="card">
+    <h2 data-i18n="card.mic">Microfone</h2>
+    <label class="chk"><input type="checkbox" id="micOn"> <span data-i18n="micOn"></span></label>
+    <select id="micSel"></select>
+    <div class="meter"><div id="micLevel"></div></div>
+  </section>
+
+  <section class="card">
+    <h2 data-i18n="card.prompter">Teleprompter</h2>
+    <div class="row">
+      <button id="tpShow" data-i18n="tp.hide"></button>
+      <button id="tpOpen" class="grow" data-i18n="tp.open"></button>
+    </div>
+    <div id="tpFile" class="muted" data-i18n="tp.none"></div>
+    <div class="row">
+      <button id="tpReset" data-i18n-title="tp.reset">⤒</button>
+      <button id="tpSlower">−</button>
+      <span id="tpSpeed" class="pill"></span>
+      <button id="tpFaster">+</button>
+      <button id="tpPlay" class="grow" data-i18n="tp.play"></button>
+    </div>
+    <div class="row">
+      <label class="grow"><span data-i18n="scroll"></span>
+        <select id="scrollMode" class="grow">
+          <option value="manual" data-i18n="scroll.manual"></option>
+          <option value="vad" data-i18n="scroll.vad"></option>
+          <option value="follow" data-i18n="scroll.follow"></option>
+        </select>
+      </label>
+    </div>
+    <div id="voiceOpts">
+      <div class="row">
+        <label class="grow"><span data-i18n="voiceLang"></span>
+          <select id="voiceLang" class="grow">
+            <option value="auto" data-i18n="voiceLang.auto"></option>
+            <option value="pt">Português (BR)</option>
+            <option value="es">Español</option>
+            <option value="en">English (US)</option>
+          </select>
+        </label>
+      </div>
+      <div class="row">
+        <span id="voiceStatus" class="muted small grow"></span>
+        <button id="modelDl" style="display:none"></button>
+      </div>
+    </div>
+    <div class="row">
+      <label class="grow"><span data-i18n="opacity"></span>
+        <input type="range" id="tpOpacity" min="0.3" max="1" step="0.05">
+      </label>
+    </div>
+    <div class="row">
+      <label class="chk grow"><input type="checkbox" id="rememberScript"> <span data-i18n="remember"></span></label>
+      <button id="clearScript" data-i18n="clearScript" data-i18n-title="clearScript.title"></button>
+    </div>
+    <label class="chk"><input type="checkbox" id="autoScroll"> <span data-i18n="autoScroll"></span></label>
+    <label class="chk"><input type="checkbox" id="countdown"> <span data-i18n="countdown"></span></label>
+  </section>
+
+  <section class="card">
+    <h2 data-i18n="card.recording">Gravação</h2>
+    <div class="row"><span class="muted" data-i18n="folder"></span><span id="outDir" class="path grow"></span></div>
+    <div id="cloudWarn" class="warn small" style="display:none"></div>
+    <div id="dataWarn" class="warn small" style="display:none"></div>
+    <div class="row">
+      <button id="chooseDir" data-i18n="chooseDir"></button>
+      <button id="openDir" data-i18n="openDir"></button>
+    </div>
+    <label class="chk"><input type="checkbox" id="hideControl"> <span data-i18n="hideControl"></span></label>
+    <div class="rec-row">
+      <button id="recBtn" class="rec" data-i18n="rec.start"></button>
+      <button id="pauseBtn" disabled data-i18n="rec.pause"></button>
+      <span id="timer">00:00:00</span>
+    </div>
+    <div id="result" class="muted"></div>
+  </section>
+
+  <footer class="muted small">
+    <b data-i18n="sc.title"></b> <span data-i18n="sc.note"></span><br>
+    <span id="shortcuts"></span>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="control.js"></script>
+</body>
+</html>

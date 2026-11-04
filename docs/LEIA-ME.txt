@@ -1,0 +1,160 @@
+GHOSTPROMPTER - LEIA-ME
+=======================
+
+Teleprompter que segue sua voz e grava sua tela, sem o roteiro aparecer no vídeo.
+
+
+PARA QUE SERVE (E PARA QUE NÃO SERVE)
+-------------------------------------
+Feito para gravar AULAS, APRESENTAÇÕES E VÍDEOS EXPLICATIVOS com autonomia e
+qualidade — de graça, sem conta e sem complicação. O teleprompter fica escondido
+da gravação para que quem assiste ao seu vídeo veja você falando com
+naturalidade, sem o roteiro na tela.
+
+O Ghostprompter NÃO foi feito para burlar processos seletivos, entrevistas,
+provas, avaliações, bancas, sistemas de supervisão (proctoring) ou qualquer
+situação em que consultar um texto escondido seja proibido ou engane alguém.
+Não use para isso.
+
+Ele NÃO se conecta a fontes externas: não busca conteúdo na internet, não usa
+inteligência artificial, chatbots, assistentes, MCP ou serviços on-line, não
+recebe texto em tempo real e não pode ser controlado de fora. Ele só mostra o
+roteiro que você mesmo abriu (um arquivo .txt ou .md do seu computador).
+
+Use de acordo com a lei e com as regras do lugar onde você grava. Gravar outras
+pessoas pode exigir o consentimento delas. O software é fornecido "no estado em
+que se encontra", sem garantias.
+
+
+O QUE O GHOSTPROMPTER FAZ
+-------------------------
+- Grava a tela, a webcam e o microfone ao mesmo tempo (e, se quiser, o som do
+  computador). Os vídeos são gravados direto em MP4, na pasta Vídeos\Ghostprompter
+  (só em pastas deste computador; pastas de rede são recusadas).
+
+- Teleprompter flutuante: abra um roteiro em .txt ou .md (ou arraste o arquivo
+  para a janela preta), posicione perto da webcam e redimensione como quiser.
+  Você vê o texto na tela, mas ele fica de fora da gravação do Ghostprompter e,
+  em geral, também de outros programas de gravação e compartilhamento de tela
+  que respeitam a proteção do Windows (Windows 10 versão 2004 ou mais novo).
+  Isso NÃO esconde o texto de uma câmera ou celular apontado para a tela, nem de
+  todo tipo de captura. Faça uma gravação de teste antes de usar para valer.
+
+- Webcam do jeito que preferir: em um arquivo separado (camera.mp4), numa
+  janelinha redonda ou retangular por cima da tela (sai junto no vídeo), ou os dois.
+
+- Três modos de rolagem do texto:
+    * Velocidade fixa.
+    * Pausar quando eu paro de falar: rola enquanto você fala e para quando
+      você para. Funciona em qualquer idioma, sem baixar nada.
+    * Seguir minha voz: reconhece o que você fala e acompanha o texto palavra
+      por palavra — acelera, desacelera, para e pula junto com você. Se você
+      sair do roteiro, ele espera; quando você volta, ele continua.
+
+- Deixas que não precisam ser lidas: escreva entre [colchetes] ou (parênteses),
+  por exemplo [PAUSA] ou (próximo slide). Os títulos (# ...) também são pulados.
+
+- Interface em português, español ou English: escolha no seletor do topo do
+  painel (no "Automático", segue o idioma do Windows). Muda na hora.
+
+- Atalhos globais (funcionam com o PowerPoint em tela cheia): Ctrl+Alt+R grava
+  e para; os demais aparecem no rodapé do painel.
+
+- Se algo der errado durante a gravação (disco cheio, câmera ou microfone
+  desconectado, computador entrando em suspensão), a gravação é finalizada na
+  hora, o trecho já gravado fica salvo e o painel avisa o motivo.
+  Dica: pendrives formatados em FAT32 aceitam no máximo 4 GB por arquivo —
+  para gravações longas, use NTFS ou exFAT.
+
+
+MODO "SEGUIR MINHA VOZ": BAIXE O IDIOMA DEPOIS DE INSTALAR
+-----------------------------------------------------------
+O instalador não traz os idiomas de reconhecimento de voz, para ficar mais leve.
+Você baixa só o que for usar, uma vez só:
+
+  1. No painel, em "Rolagem", escolha "Seguir minha voz".
+  2. Aparece o botão "Baixar modelo" (o idioma é detectado pelo roteiro, ou
+     escolha em "Idioma da fala": Português (BR), Español ou English (US)).
+  3. Clique, confirme e aguarde (cerca de 30 a 40 MB). Ele ativa sozinho.
+
+Depois de baixado, o reconhecimento roda no seu computador, sem internet.
+Enquanto o idioma não estiver baixado, o texto já funciona no modo "pausar
+quando eu paro de falar".
+
+
+PRIVACIDADE
+-----------
+Gravações, roteiros e sua voz ficam só no seu computador. O app só acessa a
+internet para baixar os modelos de voz, e apenas quando você clica em
+"Baixar modelo" (do site oficial do Vosk, alphacephei.com). Nada é enviado.
+Cada modelo baixado tem a "impressão digital" (SHA-256) conferida: se o arquivo
+vier corrompido ou alterado, ele é descartado e nada é instalado.
+Detalhes no arquivo PRIVACY.md do projeto (https://github.com/luisbei/ghostprompter).
+
+
+====================================================================
+SE O WINDOWS OU O ANTIVÍRUS BLOQUEAR A INSTALAÇÃO
+====================================================================
+
+Por que isso pode acontecer?
+----------------------------
+O Ghostprompter é um app novo e o instalador ainda não tem assinatura digital.
+Além disso, ele grava a tela, esconde uma janela da captura e usa atalhos de
+teclado globais — programas espiões fazem coisas parecidas, então alguns
+antivírus desconfiam por precaução. Na maioria das vezes é um alarme falso,
+MAS NÃO PRESUMA ISSO: confira antes, seguindo os passos abaixo.
+
+
+1) CONFIRA A ORIGEM DO ARQUIVO (sempre)
+---------------------------------------
+- Baixe o instalador SOMENTE da página oficial de versões do projeto no GitHub
+  (Releases). Se alguém te mandou o arquivo por outro caminho, prefira baixar
+  de lá.
+- A página da versão mostra a "impressão digital" (SHA-256) do instalador.
+  Confira no PowerShell (troque pelo caminho do seu arquivo):
+      Get-FileHash "$env:USERPROFILE\Downloads\Ghostprompter-Setup-1.2.0.exe"
+  O resultado tem que ser IGUAL ao publicado. Se for diferente, NÃO instale.
+- Se quiser, envie o arquivo para https://www.virustotal.com e veja a análise
+  de vários antivírus.
+
+
+2) AVISO AZUL DO WINDOWS: "O Windows protegeu o computador" (SmartScreen)
+-------------------------------------------------------------------------
+Só depois de conferir a origem (passo 1):
+- Clique em "Mais informações" e depois em "Executar assim mesmo".
+
+
+3) SE O ANTIVÍRUS COLOCAR O ARQUIVO EM QUARENTENA
+-------------------------------------------------
+- Abra o antivírus e veja o NOME da detecção. Nomes genéricos (com palavras
+  como "Heur", "Generic", "ML", "Suspicious") costumam ser alarme falso; um
+  nome de vírus específico merece mais cuidado.
+- Se a origem e o SHA-256 conferem (passo 1), restaure APENAS esse arquivo pela
+  tela de quarentena do antivírus (Histórico de proteção, no Windows Defender).
+- Ajude a resolver para todo mundo: envie o arquivo ao fabricante como "falso
+  positivo" (no Windows Defender: https://www.microsoft.com/wdsi/filesubmission;
+  nos outros, procure "enviar falso positivo" + o nome do antivírus).
+
+
+4) EXCEÇÃO NO ANTIVÍRUS — SÓ SE REALMENTE PRECISAR
+--------------------------------------------------
+Se o antivírus continuar bloqueando o app JÁ INSTALADO, crie uma exceção para
+UM ÚNICO ARQUIVO, o executável do app:
+    %LOCALAPPDATA%\Programs\Ghostprompter\Ghostprompter.exe
+
+NUNCA crie exceções para pastas inteiras — principalmente Downloads, Área de
+Trabalho ou a pasta onde está o instalador. Uma exceção de pasta deixaria
+qualquer outro arquivo que cair ali sem proteção.
+Se você desinstalar o Ghostprompter, remova a exceção também.
+
+
+DEPOIS DE INSTALAR
+------------------
+- Na primeira vez, o Windows vai pedir permissão para câmera e microfone:
+  aceite. Se não aparecer, confira em Configurações > Privacidade e segurança >
+  Câmera / Microfone > "Permitir que aplicativos da área de trabalho acessem".
+- Ao desinstalar, suas gravações e configurações NÃO são apagadas. Para apagar
+  as configurações e os modelos de voz, exclua a pasta
+  %LOCALAPPDATA%\Ghostprompter. As gravações ficam na pasta que você escolheu.
+
+Ainda com problema? Avise quem te enviou o app ou abra um "issue" no GitHub.

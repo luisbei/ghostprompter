@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' blob: 'unsafe-eval' 'wasm-unsafe-eval'; worker-src blob:; connect-src 'self' tpmodel: data: blob:">
+  <title>Teleprompter</title>
+  <link rel="stylesheet" href="prompter.css">
+</head>
+<body>
+  <div id="viewport">
+    <div id="content">
+      <p class="hint" data-i18n-html="p.hint"></p>
+    </div>
+  </div>
+  <div id="guide"></div>
+  <div id="countdown"></div>
+
+  <div id="bar">
+    <span class="grip">⠿ Teleprompter</span>
+    <button id="open" data-i18n-title="p.open">📂</button>
+    <button id="reset" data-i18n-title="p.reset">⤒</button>
+    <button id="play" data-i18n-title="p.play">▶</button>
+    <button id="slower" data-i18n-title="p.slower">−</button>
+    <span id="speed" data-i18n-title="p.speed">40</span>
+    <button id="faster" data-i18n-title="p.faster">+</button>
+    <button id="fontDown" data-i18n-title="p.fontDown">A−</button>
+    <button id="fontUp" data-i18n-title="p.fontUp">A+</button>
+    <button id="mirror" data-i18n-title="p.mirror">⇋</button>
+    <button id="hide" data-i18n-title="p.hide">✕</button>
+  </div>
+  <div id="progress"><div></div></div>
+  <div id="mic"></div>
+  <div id="drop" data-i18n="p.drop"></div>
+
+  <script src="i18n.js"></script>
+  <script src="../node_modules/vosk-browser/dist/vosk.js"></script>
+  <script src="voice.js"></script>
+  <script src="markdown.js"></script>
+  <script src="prompter.js"></script>
+</body>
+</html>

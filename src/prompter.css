@@ -1,0 +1,98 @@
+* { box-sizing: border-box; }
+html, body {
+  margin: 0; height: 100%; overflow: hidden;
+  background: #000; color: #fff;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  user-select: none;
+}
+:root { --font: 36px; --guide: 28vh; }
+
+#viewport { position: absolute; inset: 0; overflow: hidden; }
+#viewport.mirror { transform: scaleX(-1); }
+#content {
+  font-size: var(--font);
+  line-height: 1.45;
+  padding: var(--guide) 6vw 80vh;
+  will-change: transform;
+  position: relative;
+  font-weight: 500;
+}
+#content p { margin: 0 0 .7em; }
+#content h1, #content h2, #content h3 { margin: .3em 0 .5em; line-height: 1.2; color: #ffd75e; }
+#content h1 { font-size: 1.25em; } #content h2 { font-size: 1.12em; } #content h3 { font-size: 1.04em; }
+#content strong { color: #ffe9a6; }
+#content em { color: #b9d8ff; }
+#content code { font-family: Consolas, monospace; font-size: .85em; }
+#content ul, #content ol { margin: 0 0 .7em; padding-left: 1.2em; }
+#content blockquote { margin: 0 0 .7em; padding-left: .6em; border-left: 4px solid #555; color: #ccc; }
+#content hr { border: 0; border-top: 2px dashed #444; margin: .8em 0; }
+#content .cue { color: #ff8a8a; font-size: .7em; font-weight: 600; letter-spacing: .03em; }
+#content .hint { font-size: 18px; color: #888; text-align: center; }
+
+/* linha guia de leitura */
+#guide {
+  position: absolute; left: 0; right: 0; top: var(--guide);
+  height: calc(var(--font) * 1.45);
+  background: rgba(255, 215, 94, .08);
+  border-top: 1px solid rgba(255, 215, 94, .35);
+  border-bottom: 1px solid rgba(255, 215, 94, .15);
+  pointer-events: none;
+}
+#guide::before {
+  content: '▶'; position: absolute; left: 4px; top: 50%; transform: translateY(-50%);
+  color: #ffd75e; font-size: 14px; opacity: .8;
+}
+
+/* barra de controle: aparece com o mouse sobre a janela */
+#bar {
+  position: absolute; top: 0; left: 0; right: 0;
+  display: flex; align-items: center; gap: 4px;
+  padding: 4px 6px;
+  background: rgba(30, 32, 38, .94);
+  border-bottom: 1px solid #333;
+  -webkit-app-region: drag;
+  opacity: 0; transition: opacity .15s;
+  font-size: 12px;
+}
+body:hover #bar, body.paused-bar #bar { opacity: 1; }
+#bar .grip { color: #999; margin-right: auto; white-space: nowrap; overflow: hidden; }
+#bar button, #bar #speed { -webkit-app-region: no-drag; }
+#bar button {
+  background: #2c2f37; color: #eee; border: 1px solid #3b3f4a; border-radius: 5px;
+  padding: 2px 7px; font: inherit; cursor: pointer; min-width: 26px;
+}
+#bar button:hover { background: #3a3e49; }
+#bar button.on { background: #57461a; border-color: #8a6f22; }
+#speed { min-width: 28px; text-align: center; color: #ffd75e; font-variant-numeric: tabular-nums; }
+
+#progress { position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: rgba(255,255,255,.06); }
+#progress div { height: 100%; width: 0; background: #ffd75e; opacity: .6; }
+
+/* palavras já lidas (modo seguir voz) */
+body.voice-follow #content .w.read { opacity: .45; transition: opacity .3s; }
+
+/* indicador do microfone (modos de voz) */
+#mic { position: absolute; right: 8px; bottom: 8px; width: 10px; height: 10px; border-radius: 50%; display: none; pointer-events: none; }
+#mic.on { display: block; background: #666; box-shadow: 0 0 0 2px rgba(0,0,0,.6); }
+#mic.on.loading { background: #c9a227; animation: blink 1s infinite; }
+#mic.on.error { background: #e5534b; }
+body.speaking #mic.on:not(.error):not(.loading) { background: #3ecf8e; box-shadow: 0 0 8px #3ecf8e; }
+@keyframes blink { 50% { opacity: .3; } }
+
+#countdown {
+  position: absolute; inset: 0; display: none;
+  align-items: center; justify-content: center;
+  font-size: 30vh; font-weight: 700; color: #ffd75e;
+  background: rgba(0,0,0,.6); pointer-events: none;
+}
+#countdown.show { display: flex; }
+#countdown.notice { font-size: 20px; padding: 0 16px; text-align: center; }
+
+#drop {
+  position: absolute; inset: 8px; display: none;
+  align-items: center; justify-content: center;
+  border: 3px dashed #ffd75e; border-radius: 10px;
+  background: rgba(0,0,0,.85); color: #ffd75e; font-size: 22px;
+  pointer-events: none;
+}
+body.dragging #drop { display: flex; }
