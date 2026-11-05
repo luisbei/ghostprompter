@@ -145,7 +145,7 @@ If this software is useful in your work, please cite it (GitHub shows a *Cite th
 [CITATION.cff](CITATION.cff)):
 
 > Bei, L. (2026). *Ghostprompter: a voice-following teleprompter and screen/webcam recorder for lectures and
-> presentations* (Version 1.2.0) [Software]. https://github.com/luisbei/ghostprompter.
+> presentations* (Version 1.2.1) [Software]. https://github.com/luisbei/ghostprompter.
 > ORCID: [0009-0002-4650-9948](https://orcid.org/0009-0002-4650-9948)
 
 ## AI use statement
@@ -290,7 +290,7 @@ Se este software for útil no seu trabalho, cite-o (o GitHub mostra o botão *Ci
 [CITATION.cff](CITATION.cff)):
 
 > Bei, L. (2026). *Ghostprompter: a voice-following teleprompter and screen/webcam recorder for lectures and
-> presentations* (Versão 1.2.0) [Software]. https://github.com/luisbei/ghostprompter.
+> presentations* (Versão 1.2.1) [Software]. https://github.com/luisbei/ghostprompter.
 > ORCID: [0009-0002-4650-9948](https://orcid.org/0009-0002-4650-9948)
 
 ### Declaração de uso de IA

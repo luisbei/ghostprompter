@@ -1,7 +1,7 @@
 {
   "name": "gravador-teleprompter",
   "productName": "Ghostprompter",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Ghostprompter: teleprompter invisível que segue sua voz e grava sua tela, webcam e microfone",
   "author": "Luis Bei",
   "license": "MIT",
