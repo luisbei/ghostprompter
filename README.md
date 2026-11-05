@@ -135,6 +135,9 @@ code itself. Details and how to verify it yourself: [PRIVACY.md](PRIVACY.md).
   users of version 1.1 have their data moved from `%APPDATA%\gravador-teleprompter` on first launch — if that fails,
   the panel warns about it).
 
+## Code signing policy
+Release installers are built by GitHub Actions from this public repository. The project has applied for free code signing for open-source projects from the [SignPath Foundation](https://signpath.org); until it is approved, installers are unsigned and each release publishes its SHA-256. Details, roles and privacy statement: [CODE_SIGNING.md](CODE_SIGNING.md).
+
 ## Reporting security issues
 Please report vulnerabilities privately — see [SECURITY.md](SECURITY.md).
 
@@ -282,6 +285,9 @@ código. Detalhes e como verificar por conta própria: [PRIVACY.md](PRIVACY.md).
 - A versão instalada e a de desenvolvimento usam as mesmas configurações e modelos de voz
   (`%LOCALAPPDATA%\Ghostprompter`; quem usava a versão 1.1 tem os dados movidos de `%APPDATA%\gravador-teleprompter`
   na primeira abertura — se não der, o painel avisa).
+
+### Política de assinatura de código (code signing policy)
+Os instaladores são gerados pelo GitHub Actions a partir deste repositório público. O projeto solicitou assinatura gratuita para projetos open source à [SignPath Foundation](https://signpath.org); até a aprovação, os instaladores não são assinados e cada versão publica o seu SHA-256. Detalhes em [CODE_SIGNING.md](CODE_SIGNING.md).
 
 ### Licença
 Código sob a **licença MIT** — veja [LICENSE](LICENSE). Copyright (c) 2026 Luis Bei.

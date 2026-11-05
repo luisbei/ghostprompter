@@ -1,10 +1,10 @@
 # Política de assinatura de código / Code signing policy
 
-**Situação atual:** os instaladores do Ghostprompter **ainda não são assinados digitalmente**. O projeto pretende
-solicitar assinatura gratuita para projetos open source à [SignPath Foundation](https://signpath.org). Esta página
+**Situação atual:** os instaladores do Ghostprompter **ainda não são assinados digitalmente**. O projeto solicitou
+assinatura gratuita para projetos open source à [SignPath Foundation](https://signpath.org). Esta página
 será atualizada quando isso acontecer.
 
-*Current status: Ghostprompter installers are **not yet digitally signed**. The project intends to apply for free
+*Current status: Ghostprompter installers are **not yet digitally signed**. The project has applied for free
 open-source code signing from the [SignPath Foundation](https://signpath.org). This page will be updated then.*
 
 Quando a assinatura estiver ativa / *Once signing is active*:
