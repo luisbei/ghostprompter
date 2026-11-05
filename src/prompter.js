@@ -432,7 +432,7 @@ function showNotice(text) {
 window.addEventListener('resize', () => setPos(pos));
 
 // gancho para testes automatizados (usa um áudio no lugar do microfone).
-// Só existe quando o app é aberto com GHOSTPROMPTER_TEST=1.
+// Só existe quando o app é aberto com RECORDPLEASE_TEST=1.
 if (api.testMode) {
   window.__tpTest = { setStream(s) { testStream = s; return applyVoice(true); }, engine, get follow() { return follow; }, get words() { return words; } };
 }

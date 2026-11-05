@@ -2,11 +2,11 @@
 
 **English** · [Português](#privacidade) · [Español](#privacidad)
 
-**Summary:** Ghostprompter does not send anything off your computer. Screen, camera and microphone recordings,
+**Summary:** RecordPlease does not send anything off your computer. Screen, camera and microphone recordings,
 scripts and settings stay on your disk. The only internet access the app makes is downloading speech-recognition
 models, and only when you click "Download model".
 
-Ghostprompter **does not connect to external sources**: no internet content, no artificial intelligence, chatbots,
+RecordPlease **does not connect to external sources**: no internet content, no artificial intelligence, chatbots,
 assistants, MCP or online services, no real-time text feed, and it cannot be controlled remotely. It only shows the
 script you opened yourself. See also *Purpose and responsible use* in the [README](README.md).
 
@@ -14,10 +14,10 @@ script you opened yourself. See also *Purpose and responsible use* in the [READM
 
 | Data | Where |
 |---|---|
-| Recordings (screen, camera, audio) | Folder chosen in the panel (default: `Videos\Ghostprompter`) |
-| Settings | `%LOCALAPPDATA%\Ghostprompter\settings.json` |
-| Downloaded speech models | `%LOCALAPPDATA%\Ghostprompter\models` |
-| Last opened script (only if "Remember the last script" is on) | App's internal storage in `%LOCALAPPDATA%\Ghostprompter` — the "Clear saved script" button deletes it |
+| Recordings (screen, camera, audio) | Folder chosen in the panel (default: `Videos\RecordPlease`) |
+| Settings | `%LOCALAPPDATA%\RecordPlease\settings.json` |
+| Downloaded speech models | `%LOCALAPPDATA%\RecordPlease\models` |
+| Last opened script (only if "Remember the last script" is on) | App's internal storage in `%LOCALAPPDATA%\RecordPlease` — the "Clear saved script" button deletes it |
 
 App data lives in `%LOCALAPPDATA%` (the *Local* folder), which, unlike `%APPDATA%` (*Roaming*), is not synced to
 servers on company computers.
@@ -29,24 +29,24 @@ server. The app has no account, login, telemetry, usage statistics, crash report
 microphone" is ticked (for the level meter) and, in the voice-scrolling modes, while the prompter is visible. Windows
 shows the microphone/camera in-use icon in the taskbar.
 
-Besides the items in the table, the app keeps Chromium technical caches (in the same `%LOCALAPPDATA%\Ghostprompter`
+Besides the items in the table, the app keeps Chromium technical caches (in the same `%LOCALAPPDATA%\RecordPlease`
 folder) and a working copy of the loaded speech model on your computer. None of this leaves the computer.
 
 **Uninstalling does not delete** recordings or settings. To delete everything the app stored, remove the
-`%LOCALAPPDATA%\Ghostprompter` folder (and, if it exists, the old `%APPDATA%\gravador-teleprompter`). Recordings are in
+`%LOCALAPPDATA%\RecordPlease` folder (and, if they exist, the old `%LOCALAPPDATA%\Ghostprompter` and `%APPDATA%\gravador-teleprompter`). Recordings are in
 the folder you chose in the panel.
 
 Once a file is saved, it is yours: whatever you do with it outside the app (send, publish, etc.) does not go through
-Ghostprompter.
+RecordPlease.
 
 ## Warning: cloud-synced folders
 
 If the recordings folder is inside OneDrive, Dropbox, Google Drive or similar, **the sync program** (not
-Ghostprompter) will upload the recordings to the internet. On many Windows computers the *Videos* folder is part of
+RecordPlease) will upload the recordings to the internet. On many Windows computers the *Videos* folder is part of
 the OneDrive backup. That is why:
 
 - the panel shows a warning when the chosen folder is synced;
-- if the *Videos* folder is in the cloud, the default becomes a local folder (`%USERPROFILE%\Ghostprompter`).
+- if the *Videos* folder is in the cloud, the default becomes a local folder (`%USERPROFILE%\RecordPlease`).
 
 ## How this is enforced in the code
 
@@ -77,7 +77,7 @@ level, use the firewall rule below.
 - Read the privacy section at the beginning of `app.js`.
 - With the app open and recording, run in PowerShell:
   ```powershell
-  $ids = (Get-Process Ghostprompter).Id
+  $ids = (Get-Process RecordPlease).Id
   Get-NetTCPConnection -OwningProcess $ids -ErrorAction SilentlyContinue | Where-Object RemoteAddress -notin '0.0.0.0','::','127.0.0.1','::1'
   ```
   No connection should show up (only during a model download you asked for).
@@ -85,9 +85,11 @@ level, use the firewall rule below.
   speech models (download the languages first, or disable the rule only while downloading). PowerShell as
   administrator:
   ```powershell
-  New-NetFirewallRule -DisplayName "Ghostprompter - no internet" -Direction Outbound -Action Block `
-    -Program "$env:LOCALAPPDATA\Programs\Ghostprompter\Ghostprompter.exe"
+  New-NetFirewallRule -DisplayName "RecordPlease - no internet" -Direction Outbound -Action Block `
+    -Program "$env:LOCALAPPDATA\Programs\RecordPlease\RecordPlease.exe"
   ```
+  If you updated from Ghostprompter, the app stays in the previous folder:
+  `$env:LOCALAPPDATA\Programs\Ghostprompter\RecordPlease.exe`.
 
 ## Third-party libraries
 
@@ -100,11 +102,11 @@ Licenses: [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 ## Privacidade
 
-**Resumo:** o Ghostprompter não envia nada para fora do seu computador. Gravações de tela, câmera e microfone,
+**Resumo:** o RecordPlease não envia nada para fora do seu computador. Gravações de tela, câmera e microfone,
 roteiros e configurações ficam só no seu disco. O único acesso à internet que o app faz é baixar os modelos de
 reconhecimento de voz, e apenas quando você clica em "Baixar modelo".
 
-O Ghostprompter **não se conecta a fontes externas**: não busca conteúdo na internet, não usa inteligência
+O RecordPlease **não se conecta a fontes externas**: não busca conteúdo na internet, não usa inteligência
 artificial, chatbots, assistentes, MCP ou serviços on-line, não recebe texto em tempo real e não pode ser controlado
 de fora. Ele só mostra o roteiro que você mesmo abriu. Veja também *Propósito e uso responsável* no
 [README](README.md#português).
@@ -113,10 +115,10 @@ de fora. Ele só mostra o roteiro que você mesmo abriu. Veja também *Propósit
 
 | Dado | Onde fica |
 |---|---|
-| Gravações (tela, câmera, áudio) | Pasta escolhida no painel (padrão: `Vídeos\Ghostprompter`) |
-| Configurações | `%LOCALAPPDATA%\Ghostprompter\settings.json` |
-| Modelos de voz baixados | `%LOCALAPPDATA%\Ghostprompter\models` |
-| Último roteiro aberto (só se "Lembrar o último roteiro" estiver ligado) | Armazenamento interno do app em `%LOCALAPPDATA%\Ghostprompter` — o botão "Limpar roteiro salvo" apaga |
+| Gravações (tela, câmera, áudio) | Pasta escolhida no painel (padrão: `Vídeos\RecordPlease`) |
+| Configurações | `%LOCALAPPDATA%\RecordPlease\settings.json` |
+| Modelos de voz baixados | `%LOCALAPPDATA%\RecordPlease\models` |
+| Último roteiro aberto (só se "Lembrar o último roteiro" estiver ligado) | Armazenamento interno do app em `%LOCALAPPDATA%\RecordPlease` — o botão "Limpar roteiro salvo" apaga |
 
 Os dados do app ficam em `%LOCALAPPDATA%` (pasta *Local*), que, ao contrário de `%APPDATA%` (*Roaming*), não é
 sincronizada com servidores em computadores de empresa.
@@ -130,23 +132,23 @@ microfone" estiver marcado (para o medidor de nível) e, nos modos de rolagem po
 visível. O Windows mostra o ícone de microfone/câmera em uso na barra de tarefas.
 
 Além dos itens da tabela, o app guarda no seu computador caches técnicos do Chromium (na mesma pasta
-`%LOCALAPPDATA%\Ghostprompter`) e uma cópia de trabalho do modelo de voz já carregado. Nada disso sai do computador.
+`%LOCALAPPDATA%\RecordPlease`) e uma cópia de trabalho do modelo de voz já carregado. Nada disso sai do computador.
 
 **Desinstalar não apaga** gravações nem configurações. Para apagar tudo o que o app guardou, exclua a pasta
-`%LOCALAPPDATA%\Ghostprompter` (e, se existir, a antiga `%APPDATA%\gravador-teleprompter`). As gravações ficam na pasta
+`%LOCALAPPDATA%\RecordPlease` (e, se existirem, as antigas `%LOCALAPPDATA%\Ghostprompter` e `%APPDATA%\gravador-teleprompter`). As gravações ficam na pasta
 que você escolheu no painel.
 
 Depois que um arquivo é salvo, ele é seu: o que você fizer com ele fora do app (enviar, publicar etc.) não passa
-pelo Ghostprompter.
+pelo RecordPlease.
 
 ### Atenção: pastas sincronizadas com a nuvem
 
 Se a pasta de gravações estiver dentro do OneDrive, Dropbox, Google Drive ou similar, **o programa de sincronização**
-(não o Ghostprompter) vai enviar as gravações para a internet. Em muitos Windows a pasta *Vídeos* faz parte do backup
+(não o RecordPlease) vai enviar as gravações para a internet. Em muitos Windows a pasta *Vídeos* faz parte do backup
 do OneDrive. Por isso:
 
 - o painel mostra um aviso quando a pasta escolhida é sincronizada;
-- se a pasta *Vídeos* estiver na nuvem, o padrão passa a ser uma pasta local (`%USERPROFILE%\Ghostprompter`).
+- se a pasta *Vídeos* estiver na nuvem, o padrão passa a ser uma pasta local (`%USERPROFILE%\RecordPlease`).
 
 ### Como isso é garantido no código
 
@@ -187,16 +189,17 @@ garantia no nível do Windows, use a regra de firewall da seção em inglês aci
 
 ## Privacidad
 
-**Resumen:** Ghostprompter no envía nada fuera de tu computadora. Las grabaciones de pantalla, cámara y micrófono,
+**Resumen:** RecordPlease no envía nada fuera de tu computadora. Las grabaciones de pantalla, cámara y micrófono,
 los guiones y la configuración se quedan en tu disco. El único acceso a internet que hace la app es descargar los
 modelos de reconocimiento de voz, y solo cuando haces clic en "Descargar modelo".
 
-Ghostprompter **no se conecta a fuentes externas**: no busca contenido en internet, no usa inteligencia artificial,
+RecordPlease **no se conecta a fuentes externas**: no busca contenido en internet, no usa inteligencia artificial,
 chatbots, asistentes, MCP ni servicios en línea, no recibe texto en tiempo real y no puede controlarse desde fuera.
 Solo muestra el guion que tú abriste.
 
-- Los datos de la app están en `%LOCALAPPDATA%\Ghostprompter`; las grabaciones, en la carpeta que elegiste. Desinstalar
-  no los borra: para borrarlo todo, elimina esa carpeta.
+- Los datos de la app están en `%LOCALAPPDATA%\RecordPlease`; las grabaciones, en la carpeta que elegiste. Desinstalar
+  no los borra: para borrarlo todo, elimina esa carpeta (y, si existen, las antiguas `%LOCALAPPDATA%\Ghostprompter` y
+  `%APPDATA%\gravador-teleprompter`).
 - La voz se procesa **en tu computadora** (Vosk, sin conexión). Sin cuenta, telemetría ni actualizaciones automáticas.
 - Si la carpeta de grabaciones está en OneDrive, Dropbox o similar, **ese programa** subirá las grabaciones a
   internet; el panel muestra un aviso. Las carpetas de red se rechazan.

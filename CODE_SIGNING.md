@@ -1,10 +1,10 @@
 # Política de assinatura de código / Code signing policy
 
-**Situação atual:** os instaladores do Ghostprompter **ainda não são assinados digitalmente**. O projeto solicitou
+**Situação atual:** os instaladores do RecordPlease **ainda não são assinados digitalmente**. O projeto solicitou
 assinatura gratuita para projetos open source à [SignPath Foundation](https://signpath.org). Esta página
 será atualizada quando isso acontecer.
 
-*Current status: Ghostprompter installers are **not yet digitally signed**. The project has applied for free
+*Current status: RecordPlease installers are **not yet digitally signed**. The project has applied for free
 open-source code signing from the [SignPath Foundation](https://signpath.org). This page will be updated then.*
 
 Quando a assinatura estiver ativa / *Once signing is active*:
@@ -31,8 +31,8 @@ Quando a assinatura estiver ativa / *Once signing is active*:
 Todas as contas com acesso ao repositório e à assinatura usam autenticação em duas etapas.
 *All accounts with access to the repository and to signing use multi-factor authentication.*
 
-O projeto assina somente os seus próprios arquivos (o instalador e o executável do Ghostprompter).
-*The project signs only its own files (the Ghostprompter installer and executable).*
+O projeto assina somente os seus próprios arquivos (o instalador e o executável do RecordPlease).
+*The project signs only its own files (the RecordPlease installer and executable).*
 
 ## Privacidade / Privacy
 

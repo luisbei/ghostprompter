@@ -1,9 +1,9 @@
-﻿GHOSTPROMPTER — LEIA ANTES DE INSTALAR / READ BEFORE INSTALLING / LEE ANTES DE INSTALAR
+﻿RECORDPLEASE — LEIA ANTES DE INSTALAR / READ BEFORE INSTALLING / LEE ANTES DE INSTALAR
 
 === PORTUGUÊS ===
 PARA QUE SERVE: gravar aulas, apresentações e vídeos explicativos com autonomia e qualidade — de graça, sem conta e sem complicação. O teleprompter fica de fora da gravação para que quem assiste ao seu vídeo veja você falando com naturalidade.
 
-PARA QUE NÃO SERVE: o Ghostprompter NÃO foi feito para burlar processos seletivos, entrevistas, provas, avaliações, bancas, sistemas de supervisão (proctoring) ou qualquer situação em que consultar um texto escondido seja proibido ou engane alguém. Não use para isso.
+PARA QUE NÃO SERVE: o RecordPlease NÃO foi feito para burlar processos seletivos, entrevistas, provas, avaliações, bancas, sistemas de supervisão (proctoring) ou qualquer situação em que consultar um texto escondido seja proibido ou engane alguém. Não use para isso.
 
 O QUE ELE NÃO FAZ: não se conecta a fontes externas, não usa inteligência artificial, chatbots, assistentes, MCP nem serviços on-line, não recebe texto em tempo real e não pode ser controlado de fora. Só mostra o roteiro que você mesmo abriu. Nada é enviado para fora do seu computador; o único acesso à internet é baixar os modelos de reconhecimento de voz quando você pede.
 
@@ -12,7 +12,7 @@ SUA RESPONSABILIDADE: use de acordo com a lei e com as regras do lugar onde voc�
 === ENGLISH ===
 WHAT IT IS FOR: recording lectures, presentations and explainer videos on your own, with good quality — free, no account, no hassle. The teleprompter is kept out of the recording so viewers see you speaking naturally.
 
-WHAT IT IS NOT FOR: Ghostprompter was NOT made to cheat in job selection processes, interviews, exams, assessments, thesis defenses, proctoring systems or any situation where reading hidden text is forbidden or deceives someone. Do not use it for that.
+WHAT IT IS NOT FOR: RecordPlease was NOT made to cheat in job selection processes, interviews, exams, assessments, thesis defenses, proctoring systems or any situation where reading hidden text is forbidden or deceives someone. Do not use it for that.
 
 WHAT IT DOES NOT DO: it does not connect to external sources, AI, chatbots, assistants, MCP or online services, receives no real-time text and cannot be controlled remotely. It only shows the script you opened yourself. Nothing is sent off your computer; the only internet access is downloading speech models when you ask.
 
@@ -21,7 +21,7 @@ YOUR RESPONSIBILITY: use it lawfully and according to the rules where you record
 === ESPAÑOL ===
 PARA QUÉ SIRVE: grabar clases, presentaciones y videos explicativos con autonomía y calidad — gratis, sin cuenta y sin complicaciones. El teleprompter queda fuera de la grabación para que quienes ven tu video te vean hablar con naturalidad.
 
-PARA QUÉ NO SIRVE: Ghostprompter NO fue hecho para hacer trampa en procesos de selección, entrevistas, exámenes, evaluaciones, defensas de tesis, sistemas de supervisión (proctoring) ni en ninguna situación en la que consultar un texto oculto esté prohibido o engañe a alguien. No lo uses para eso.
+PARA QUÉ NO SIRVE: RecordPlease NO fue hecho para hacer trampa en procesos de selección, entrevistas, exámenes, evaluaciones, defensas de tesis, sistemas de supervisión (proctoring) ni en ninguna situación en la que consultar un texto oculto esté prohibido o engañe a alguien. No lo uses para eso.
 
 LO QUE NO HACE: no se conecta a fuentes externas, no usa inteligencia artificial, chatbots, asistentes, MCP ni servicios en línea, no recibe texto en tiempo real y no puede controlarse desde fuera. Solo muestra el guion que tú abriste. Nada sale de tu computadora; el único acceso a internet es descargar los modelos de voz cuando lo pides.
 

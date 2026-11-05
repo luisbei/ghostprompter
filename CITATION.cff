@@ -5,15 +5,15 @@ message: >-
   Software criado com suporte de inteligência artificial.
   Created with artificial-intelligence support.
 type: software
-title: "Ghostprompter: a voice-following teleprompter and screen/webcam recorder for lectures and presentations"
+title: "RecordPlease: a voice-following teleprompter and screen/webcam recorder for lectures and presentations"
 authors:
   - given-names: Luis
     family-names: Bei
     orcid: "https://orcid.org/0009-0002-4650-9948"
 doi: 10.5281/zenodo.23966418
-repository-code: "https://github.com/luisbei/ghostprompter"
-url: "https://github.com/luisbei/ghostprompter"
-version: 1.2.1
+repository-code: "https://github.com/luisbei/recordplease"
+url: "https://github.com/luisbei/recordplease"
+version: 1.3.0
 date-released: "2026-11-05"
 license: MIT
 keywords:
@@ -26,7 +26,7 @@ keywords:
   - Electron
   - Vosk
 abstract: >-
-  Ghostprompter is a free, offline Windows application for recording lectures and presentations. It records the
+  RecordPlease is a free, offline Windows application for recording lectures and presentations. It records the
   screen, webcam and microphone, and shows a floating teleprompter that is excluded from the recording and can
   scroll by following the speaker's voice using on-device speech recognition (Vosk). It does not connect to
   external content sources, AI services or real-time feeds, and sends no data off the user's computer.

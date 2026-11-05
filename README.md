@@ -1,7 +1,9 @@
-# Ghostprompter
+# RecordPlease
 
-*A free, offline teleprompter that follows your voice and records your screen, webcam and microphone — made for
-lectures and presentations.*
+**Record your lessons with a voice-following teleprompter that stays out of your video.**
+
+*Free and offline for Windows: records your screen, webcam and microphone while a floating teleprompter follows your
+voice — made for lectures, classes and presentations.*
 
 **English** · [Português](#português) · [Español](#español)
 
@@ -12,8 +14,11 @@ lectures and presentations.*
   <br><em>"Follow my voice": the script scrolls with your speech, offline. Words already read are dimmed; cues like (next slide) are skipped.</em>
 </p>
 
-Ghostprompter records **screen + webcam + microphone** and shows a **floating teleprompter that is kept out of the
+RecordPlease records **screen + webcam + microphone** and shows a **floating teleprompter that is kept out of the
 recording** (see the limits in *Teleprompter kept out of the recording*, below).
+
+> **Formerly "Ghostprompter".** Version 1.3.0 renamed the project to RecordPlease (to avoid confusion with an
+> unrelated product of a similar name). Updating keeps your settings, speech models and recordings folder.
 
 ## Purpose and responsible use
 
@@ -21,7 +26,7 @@ recording** (see the limits in *Teleprompter kept out of the recording*, below).
 no account, no subscription, no hassle. The teleprompter is hidden from the recording so that **the people watching
 your video** see you speaking naturally, without the script on screen.
 
-**What it is NOT for:** Ghostprompter **was not made to cheat** in job selection processes, interviews, exams,
+**What it is NOT for:** RecordPlease **was not made to cheat** in job selection processes, interviews, exams,
 assessments, thesis defenses, proctoring/monitoring systems or any situation where reading hidden text is forbidden
 or deceives someone. Do not use it for that.
 
@@ -36,7 +41,7 @@ or deceives someone. Do not use it for that.
 may require their consent. The software is provided "as is", without warranty.
 
 ## Install (Windows)
-Download the installer **only from this project's [Releases page](https://github.com/luisbei/ghostprompter/releases)**,
+Download the installer **only from this project's [Releases page](https://github.com/luisbei/recordplease/releases)**,
 check the SHA-256 published there (`Get-FileHash <file>` in PowerShell) and follow the wizard. It creates Start menu
 and desktop shortcuts and shows up in "Add or remove programs". Speech models are downloaded by the app itself when
 you choose "Follow my voice".
@@ -46,11 +51,12 @@ protected your PC". After checking where the file came from, click **More info �
 blocks it, see [`docs/LEIA-ME.txt`](docs/LEIA-ME.txt) (never create exclusions for whole folders).
 
 Uninstalling does **not** delete your recordings or settings. To delete settings and speech models, remove
-`%LOCALAPPDATA%\Ghostprompter`.
+`%LOCALAPPDATA%\RecordPlease` (and, if they still exist, `%LOCALAPPDATA%\Ghostprompter` and
+`%APPDATA%\gravador-teleprompter`, used by older versions).
 
 ## How to use
 
-<img src="docs/images/panel-en.png" alt="Ghostprompter control panel in English" width="340" align="right">
+<img src="docs/images/panel-en.png" alt="RecordPlease control panel in English" width="340" align="right">
 
 1. **Screen**: choose the screen (or window) to record. Tick "Include system audio" to record the computer's sound.
 2. **Camera / Microphone**: choose your devices. The bar shows the microphone level. Camera **Mode**:
@@ -65,7 +71,7 @@ Uninstalling does **not** delete your recordings or settings. To delete settings
 
 ### Teleprompter kept out of the recording: how it works and its limits
 The teleprompter (and, if ticked, the control panel) uses Windows capture protection (`WDA_EXCLUDEFROMCAPTURE`,
-Windows 10 version 2004 or newer). You see the text on screen, but it is left out of Ghostprompter's recording and,
+Windows 10 version 2004 or newer). You see the text on screen, but it is left out of RecordPlease's recording and,
 in general, of other recording and screen-sharing programs that honor this protection.
 
 **It is not a universal guarantee:** it depends on Windows and on each program's capture method, and it does not hide
@@ -74,7 +80,8 @@ recording** before relying on it. (Remember: the purpose is recording lectures a
 responsible use*.)
 
 ### Recorded files
-By default in `Videos\Ghostprompter\Recording <date>\`. Names follow the interface language
+By default in `Videos\RecordPlease\Recording <date>\` (if you used an older version, recordings keep going to the
+folder you already had, such as `Videos\Ghostprompter` or `Videos\Gravacoes Teleprompter`). Names follow the interface language
 (e.g. `Gravacao …\tela.mp4` in Portuguese, `Grabacion …\pantalla.mp4` in Spanish):
 - `screen.mp4` — screen + microphone (+ system audio, if ticked)
 - `camera.mp4` — webcam + microphone (same audio, easy to sync when editing) — in *Separate file* and *Both* modes
@@ -131,9 +138,9 @@ code itself. Details and how to verify it yourself: [PRIVACY.md](PRIVACY.md).
 - Build an installer locally: `npm run dist` (output in `release\`). To change the version, edit `"version"` in
   `package.json`.
 - Official releases are built by GitHub Actions from the release tag ([`.github/workflows/release.yml`](.github/workflows/release.yml)).
-- The installed and development versions share the same settings and speech models (`%LOCALAPPDATA%\Ghostprompter`;
-  users of version 1.1 have their data moved from `%APPDATA%\gravador-teleprompter` on first launch — if that fails,
-  the panel warns about it).
+- The installed and development versions share the same settings and speech models (`%LOCALAPPDATA%\RecordPlease`).
+  On first launch, data from older versions is moved there from `%LOCALAPPDATA%\Ghostprompter` (1.2) or
+  `%APPDATA%\gravador-teleprompter` (1.1); if moving from the synced Roaming folder fails, the panel warns about it.
 
 ## Code signing policy
 Release installers are built by GitHub Actions from this public repository. The project has applied for free code signing for open-source projects from the [SignPath Foundation](https://signpath.org); until it is approved, installers are unsigned and each release publishes its SHA-256. Details, roles and privacy statement: [CODE_SIGNING.md](CODE_SIGNING.md).
@@ -149,8 +156,8 @@ Third-party components included in the installer and their licenses: [THIRD_PART
 If this software is useful in your work, please cite it (GitHub shows a *Cite this repository* button based on
 [CITATION.cff](CITATION.cff)):
 
-> Bei, L. (2026). *Ghostprompter: a voice-following teleprompter and screen/webcam recorder for lectures and
-> presentations* (Version 1.2.1) [Software]. Zenodo. https://doi.org/10.5281/zenodo.23966418
+> Bei, L. (2026). *RecordPlease: a voice-following teleprompter and screen/webcam recorder for lectures and
+> presentations* (Version 1.3.0) [Software]. Zenodo. https://doi.org/10.5281/zenodo.23966418
 > ORCID: [0009-0002-4650-9948](https://orcid.org/0009-0002-4650-9948)
 
 ## AI use statement
@@ -161,8 +168,13 @@ online service** — speech recognition runs on your computer.
 
 ## Português
 
-*Teleprompter gratuito e offline que segue a sua voz e grava tela, webcam e microfone — feito para aulas e
-apresentações.*
+**Grave suas aulas com um teleprompter que segue a sua voz e fica fora do seu vídeo.**
+
+*Gratuito e offline para Windows: grava tela, webcam e microfone enquanto um teleprompter flutuante acompanha a sua
+voz — feito para aulas e apresentações.*
+
+> **Antes chamado "Ghostprompter".** Na versão 1.3.0 o projeto passou a se chamar RecordPlease (para evitar confusão com
+> outro produto, sem relação, de nome parecido). Ao atualizar, configurações, modelos de voz e pasta de gravações são mantidos.
 
 Grava **tela + webcam + microfone** e mostra um **teleprompter flutuante que fica de fora da gravação** (veja os
 limites em *Teleprompter fora da gravação*, abaixo).
@@ -175,7 +187,7 @@ limites em *Teleprompter fora da gravação*, abaixo).
 sem conta, sem assinatura e sem complicação. O teleprompter fica escondido da gravação para que **quem assiste ao
 seu vídeo** veja você falando com naturalidade, sem o roteiro na tela.
 
-**Para que NÃO serve:** o Ghostprompter **não foi feito para burlar** processos seletivos, entrevistas, provas,
+**Para que NÃO serve:** o RecordPlease **não foi feito para burlar** processos seletivos, entrevistas, provas,
 avaliações, bancas, sistemas de supervisão/monitoramento (*proctoring*) ou qualquer situação em que consultar um
 texto escondido seja proibido ou engane alguém. Não use para isso.
 
@@ -190,7 +202,7 @@ texto escondido seja proibido ou engane alguém. Não use para isso.
 pessoas pode exigir o consentimento delas. O software é fornecido "no estado em que se encontra", sem garantias.
 
 ### Instalar (Windows)
-Baixe o instalador **somente da [página de versões (Releases)](https://github.com/luisbei/ghostprompter/releases)**,
+Baixe o instalador **somente da [página de versões (Releases)](https://github.com/luisbei/recordplease/releases)**,
 confira o SHA-256 publicado lá (`Get-FileHash <arquivo>` no PowerShell) e siga o assistente. Ele cria atalho no Menu
 Iniciar e na área de trabalho e aparece em "Adicionar ou remover programas". Os modelos de voz são baixados pelo
 próprio app quando você escolher "Seguir minha voz".
@@ -200,7 +212,8 @@ Como o instalador ainda não é assinado digitalmente ([CODE_SIGNING.md](CODE_SI
 Se o antivírus bloquear, veja o [`docs/LEIA-ME.txt`](docs/LEIA-ME.txt) (nunca crie exceções para pastas inteiras).
 
 Ao desinstalar, gravações e configurações **não** são apagadas. Para apagar configurações e modelos de voz, exclua
-`%LOCALAPPDATA%\Ghostprompter`.
+`%LOCALAPPDATA%\RecordPlease` (e, se ainda existirem, `%LOCALAPPDATA%\Ghostprompter` e
+`%APPDATA%\gravador-teleprompter`, usadas por versões anteriores).
 
 ### Uso
 1. **Tela**: escolha a tela (ou janela) a gravar. Marque "Incluir áudio do sistema" se quiser o som do PC junto.
@@ -217,15 +230,15 @@ Ao desinstalar, gravações e configurações **não** são apagadas. Para apaga
 #### Teleprompter fora da gravação: como funciona e limites
 O teleprompter (e, se marcado, a janela de controle) usa a proteção de captura do Windows
 (`WDA_EXCLUDEFROMCAPTURE`, Windows 10 versão 2004 ou mais novo). Você vê o texto na tela, mas ele fica de fora da
-gravação do Ghostprompter e, em geral, de outros programas de gravação e compartilhamento que respeitam essa proteção.
+gravação do RecordPlease e, em geral, de outros programas de gravação e compartilhamento que respeitam essa proteção.
 
 **Não é uma garantia universal:** depende do Windows e do método de captura de cada programa, e não esconde nada de
 uma câmera ou celular apontado para a tela nem de capturas externas do sinal de vídeo. **Faça uma gravação de teste**
 antes de usar para valer. (Lembre-se: o propósito é gravar aulas e apresentações — veja *Propósito e uso responsável*.)
 
 #### Arquivos gerados
-Por padrão em `Vídeos\Ghostprompter\Gravacao <data>\` (quem já usava a versão antiga continua em
-`Vídeos\Gravacoes Teleprompter`). Os nomes seguem o idioma da interface
+Por padrão em `Vídeos\RecordPlease\Gravacao <data>\` (quem já usava uma versão anterior continua na pasta de antes,
+como `Vídeos\Ghostprompter` ou `Vídeos\Gravacoes Teleprompter`). Os nomes seguem o idioma da interface
 (ex.: `Recording …\screen.mp4` em inglês, `Grabacion …\pantalla.mp4` em espanhol):
 - `tela.mp4` — tela + microfone (+ áudio do sistema, se marcado)
 - `camera.mp4` — webcam + microfone (mesmo áudio, fácil de sincronizar na edição) — nos modos *Arquivo separado* e *Os dois*
@@ -283,8 +296,9 @@ código. Detalhes e como verificar por conta própria: [PRIVACY.md](PRIVACY.md).
 - As versões oficiais são geradas pelo GitHub Actions a partir da tag da versão
   ([`.github/workflows/release.yml`](.github/workflows/release.yml)).
 - A versão instalada e a de desenvolvimento usam as mesmas configurações e modelos de voz
-  (`%LOCALAPPDATA%\Ghostprompter`; quem usava a versão 1.1 tem os dados movidos de `%APPDATA%\gravador-teleprompter`
-  na primeira abertura — se não der, o painel avisa).
+  (`%LOCALAPPDATA%\RecordPlease`). Na primeira abertura, os dados de versões anteriores são movidos para lá a partir de
+  `%LOCALAPPDATA%\Ghostprompter` (1.2) ou `%APPDATA%\gravador-teleprompter` (1.1); se não der para mover da pasta
+  Roaming (sincronizável), o painel avisa.
 
 ### Política de assinatura de código (code signing policy)
 Os instaladores são gerados pelo GitHub Actions a partir deste repositório público. O projeto solicitou assinatura gratuita para projetos open source à [SignPath Foundation](https://signpath.org); até a aprovação, os instaladores não são assinados e cada versão publica o seu SHA-256. Detalhes em [CODE_SIGNING.md](CODE_SIGNING.md).
@@ -297,8 +311,8 @@ Componentes de terceiros incluídos no instalador e suas licenças: [THIRD_PARTY
 Se este software for útil no seu trabalho, cite-o (o GitHub mostra o botão *Cite this repository* a partir do
 [CITATION.cff](CITATION.cff)):
 
-> Bei, L. (2026). *Ghostprompter: a voice-following teleprompter and screen/webcam recorder for lectures and
-> presentations* (Versão 1.2.1) [Software]. Zenodo. https://doi.org/10.5281/zenodo.23966418
+> Bei, L. (2026). *RecordPlease: a voice-following teleprompter and screen/webcam recorder for lectures and
+> presentations* (Versão 1.3.0) [Software]. Zenodo. https://doi.org/10.5281/zenodo.23966418
 > ORCID: [0009-0002-4650-9948](https://orcid.org/0009-0002-4650-9948)
 
 ### Declaração de uso de IA
@@ -309,8 +323,14 @@ serviço on-line** — o reconhecimento de voz é feito no seu computador.
 
 ## Español
 
-*Teleprompter gratuito y sin conexión que sigue tu voz y graba pantalla, webcam y micrófono — hecho para clases y
-presentaciones.* La interfaz del programa también está en español.
+**Graba tus clases con un teleprompter que sigue tu voz y queda fuera de tu video.**
+
+*Gratis y sin conexión para Windows: graba pantalla, webcam y micrófono mientras un teleprompter flotante sigue tu
+voz — hecho para clases y presentaciones.* La interfaz del programa también está en español.
+
+> **Antes llamado "Ghostprompter".** En la versión 1.3.0 el proyecto pasó a llamarse RecordPlease (para evitar confusión con
+> otro producto, sin relación, de nombre parecido). Al actualizar se conservan la configuración, los modelos de voz y la carpeta
+> de grabaciones.
 
 ### Propósito y uso responsable
 
@@ -318,7 +338,7 @@ presentaciones.* La interfaz del programa también está en español.
 cuenta, sin suscripción y sin complicaciones. El teleprompter queda oculto en la grabación para que **quienes ven tu
 video** te vean hablar con naturalidad, sin el guion en pantalla.
 
-**Para qué NO sirve:** Ghostprompter **no fue hecho para hacer trampa** en procesos de selección, entrevistas,
+**Para qué NO sirve:** RecordPlease **no fue hecho para hacer trampa** en procesos de selección, entrevistas,
 exámenes, evaluaciones, defensas de tesis, sistemas de supervisión (*proctoring*) ni en ninguna situación en la que
 consultar un texto oculto esté prohibido o engañe a alguien. No lo uses para eso.
 
@@ -332,7 +352,7 @@ lo pides (ver [PRIVACY.md](PRIVACY.md)).
 puede requerir su consentimiento. El software se ofrece "tal cual", sin garantías.
 
 ### Instalar
-Descarga el instalador **solo desde la [página de versiones (Releases)](https://github.com/luisbei/ghostprompter/releases)**,
+Descarga el instalador **solo desde la [página de versiones (Releases)](https://github.com/luisbei/recordplease/releases)**,
 comprueba el SHA-256 publicado allí (`Get-FileHash <archivo>` en PowerShell) y sigue el asistente. El instalador aún
 no está firmado digitalmente, así que Windows puede mostrar un aviso: tras comprobar el origen, usa *Más información →
 Ejecutar de todas formas*. Nunca crees exclusiones de antivirus para carpetas enteras.

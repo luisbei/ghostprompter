@@ -2,7 +2,7 @@
 
 **English** · [Português](#avisos-de-terceiros) · [Español](#avisos-de-terceros)
 
-Ghostprompter is distributed under the MIT License (see [LICENSE](LICENSE)). The installer includes the components
+RecordPlease is distributed under the MIT License (see [LICENSE](LICENSE)). The installer includes the components
 below, each under its own license.
 
 | Component | Used for | License | License text |
@@ -34,7 +34,7 @@ Official list: <https://alphacephei.com/vosk/models>
 
 ## Avisos de terceiros
 
-O Ghostprompter é distribuído sob a licença MIT (veja [LICENSE](LICENSE)). O instalador inclui os componentes da
+O RecordPlease é distribuído sob a licença MIT (veja [LICENSE](LICENSE)). O instalador inclui os componentes da
 tabela acima, cada um sob a sua própria licença: Electron (MIT), Chromium (BSD-3-Clause e outras), vosk-browser,
 Vosk, Kaldi e OpenFst (Apache-2.0), bibliotecas auxiliares do vosk-browser (MIT, BSD, 0BSD) e uuid (MIT).
 
@@ -44,7 +44,7 @@ Vosk (alphacephei.com) os modelos listados acima, distribuídos pelos autores so
 
 ## Avisos de terceros
 
-Ghostprompter se distribuye bajo la licencia MIT (ver [LICENSE](LICENSE)). El instalador incluye los componentes de
+RecordPlease se distribuye bajo la licencia MIT (ver [LICENSE](LICENSE)). El instalador incluye los componentes de
 la tabla de arriba, cada uno con su propia licencia: Electron (MIT), Chromium (BSD-3-Clause y otras), vosk-browser,
 Vosk, Kaldi y OpenFst (Apache-2.0), bibliotecas auxiliares de vosk-browser (MIT, BSD, 0BSD) y uuid (MIT).
 

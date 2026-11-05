@@ -40,7 +40,7 @@ jobs:
       - name: Calcular SHA-256
         shell: pwsh
         run: |
-          $exe = Get-ChildItem release -Filter 'Ghostprompter-Setup-*.exe' | Select-Object -First 1
+          $exe = Get-ChildItem release -Filter 'RecordPlease-Setup-*.exe' | Select-Object -First 1
           $h = (Get-FileHash $exe.FullName -Algorithm SHA256).Hash.ToLower()
           "$h  $($exe.Name)" | Out-File release/SHA256SUMS.txt -Encoding ascii
           Get-Content release/SHA256SUMS.txt
@@ -48,9 +48,9 @@ jobs:
       - name: Guardar o instalador como artefato da execução
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
-          name: ghostprompter-windows
+          name: recordplease-windows
           path: |
-            release/Ghostprompter-Setup-*.exe
+            release/RecordPlease-Setup-*.exe
             release/SHA256SUMS.txt
 
       - name: Publicar a versão no GitHub (só em tags)
@@ -59,9 +59,9 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          $exe = (Get-ChildItem release -Filter 'Ghostprompter-Setup-*.exe' | Select-Object -First 1).FullName
+          $exe = (Get-ChildItem release -Filter 'RecordPlease-Setup-*.exe' | Select-Object -First 1).FullName
           $notes = "docs/release-notes/${{ github.ref_name }}.md"
           if (-not (Test-Path $notes)) { $notes = $null }
-          $ghArgs = @('${{ github.ref_name }}', $exe, 'release/SHA256SUMS.txt', 'docs/LEIA-ME.txt', '--title', 'Ghostprompter ${{ github.ref_name }}', '--verify-tag')
+          $ghArgs = @('${{ github.ref_name }}', $exe, 'release/SHA256SUMS.txt', 'docs/LEIA-ME.txt', '--title', 'RecordPlease ${{ github.ref_name }}', '--verify-tag')
           if ($notes) { $ghArgs += @('--notes-file', $notes) } else { $ghArgs += @('--generate-notes') }
           gh release create @ghArgs

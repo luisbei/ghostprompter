@@ -1,7 +1,9 @@
-GHOSTPROMPTER - LEIA-ME
-=======================
+RECORDPLEASE - LEIA-ME
+======================
 
-Teleprompter que segue sua voz e grava sua tela, sem o roteiro aparecer no vídeo.
+Grave suas aulas com um teleprompter que segue a sua voz e fica fora do seu vídeo.
+(Antes chamado "Ghostprompter". Ao atualizar, suas configurações, modelos de voz
+e pasta de gravações são mantidos.)
 
 
 PARA QUE SERVE (E PARA QUE NÃO SERVE)
@@ -11,7 +13,7 @@ qualidade — de graça, sem conta e sem complicação. O teleprompter fica esco
 da gravação para que quem assiste ao seu vídeo veja você falando com
 naturalidade, sem o roteiro na tela.
 
-O Ghostprompter NÃO foi feito para burlar processos seletivos, entrevistas,
+O RecordPlease NÃO foi feito para burlar processos seletivos, entrevistas,
 provas, avaliações, bancas, sistemas de supervisão (proctoring) ou qualquer
 situação em que consultar um texto escondido seja proibido ou engane alguém.
 Não use para isso.
@@ -26,15 +28,16 @@ pessoas pode exigir o consentimento delas. O software é fornecido "no estado em
 que se encontra", sem garantias.
 
 
-O QUE O GHOSTPROMPTER FAZ
--------------------------
+O QUE O RECORDPLEASE FAZ
+------------------------
 - Grava a tela, a webcam e o microfone ao mesmo tempo (e, se quiser, o som do
-  computador). Os vídeos são gravados direto em MP4, na pasta Vídeos\Ghostprompter
-  (só em pastas deste computador; pastas de rede são recusadas).
+  computador). Os vídeos são gravados direto em MP4, na pasta Vídeos\RecordPlease
+  (quem atualizou continua na pasta de antes, como Vídeos\Ghostprompter; só em
+  pastas deste computador; pastas de rede são recusadas).
 
 - Teleprompter flutuante: abra um roteiro em .txt ou .md (ou arraste o arquivo
   para a janela preta), posicione perto da webcam e redimensione como quiser.
-  Você vê o texto na tela, mas ele fica de fora da gravação do Ghostprompter e,
+  Você vê o texto na tela, mas ele fica de fora da gravação do RecordPlease e,
   em geral, também de outros programas de gravação e compartilhamento de tela
   que respeitam a proteção do Windows (Windows 10 versão 2004 ou mais novo).
   Isso NÃO esconde o texto de uma câmera ou celular apontado para a tela, nem de
@@ -89,7 +92,7 @@ internet para baixar os modelos de voz, e apenas quando você clica em
 "Baixar modelo" (do site oficial do Vosk, alphacephei.com). Nada é enviado.
 Cada modelo baixado tem a "impressão digital" (SHA-256) conferida: se o arquivo
 vier corrompido ou alterado, ele é descartado e nada é instalado.
-Detalhes no arquivo PRIVACY.md do projeto (https://github.com/luisbei/ghostprompter).
+Detalhes no arquivo PRIVACY.md do projeto (https://github.com/luisbei/recordplease).
 
 
 ====================================================================
@@ -98,7 +101,7 @@ SE O WINDOWS OU O ANTIVÍRUS BLOQUEAR A INSTALAÇÃO
 
 Por que isso pode acontecer?
 ----------------------------
-O Ghostprompter é um app novo e o instalador ainda não tem assinatura digital.
+O RecordPlease é um app novo e o instalador ainda não tem assinatura digital.
 Além disso, ele grava a tela, esconde uma janela da captura e usa atalhos de
 teclado globais — programas espiões fazem coisas parecidas, então alguns
 antivírus desconfiam por precaução. Na maioria das vezes é um alarme falso,
@@ -112,7 +115,7 @@ MAS NÃO PRESUMA ISSO: confira antes, seguindo os passos abaixo.
   de lá.
 - A página da versão mostra a "impressão digital" (SHA-256) do instalador.
   Confira no PowerShell (troque pelo caminho do seu arquivo):
-      Get-FileHash "$env:USERPROFILE\Downloads\Ghostprompter-Setup-1.2.0.exe"
+      Get-FileHash "$env:USERPROFILE\Downloads\RecordPlease-Setup-1.3.0.exe"
   O resultado tem que ser IGUAL ao publicado. Se for diferente, NÃO instale.
 - Se quiser, envie o arquivo para https://www.virustotal.com e veja a análise
   de vários antivírus.
@@ -140,12 +143,14 @@ Só depois de conferir a origem (passo 1):
 --------------------------------------------------
 Se o antivírus continuar bloqueando o app JÁ INSTALADO, crie uma exceção para
 UM ÚNICO ARQUIVO, o executável do app:
-    %LOCALAPPDATA%\Programs\Ghostprompter\Ghostprompter.exe
+    %LOCALAPPDATA%\Programs\RecordPlease\RecordPlease.exe
+(Se você atualizou a partir do Ghostprompter, o app continua na pasta antiga:
+    %LOCALAPPDATA%\Programs\Ghostprompter\RecordPlease.exe)
 
 NUNCA crie exceções para pastas inteiras — principalmente Downloads, Área de
 Trabalho ou a pasta onde está o instalador. Uma exceção de pasta deixaria
 qualquer outro arquivo que cair ali sem proteção.
-Se você desinstalar o Ghostprompter, remova a exceção também.
+Se você desinstalar o RecordPlease, remova a exceção também.
 
 
 DEPOIS DE INSTALAR
@@ -155,6 +160,8 @@ DEPOIS DE INSTALAR
   Câmera / Microfone > "Permitir que aplicativos da área de trabalho acessem".
 - Ao desinstalar, suas gravações e configurações NÃO são apagadas. Para apagar
   as configurações e os modelos de voz, exclua a pasta
-  %LOCALAPPDATA%\Ghostprompter. As gravações ficam na pasta que você escolheu.
+  %LOCALAPPDATA%\RecordPlease (e, se ainda existirem, as antigas
+  %LOCALAPPDATA%\Ghostprompter e %APPDATA%\gravador-teleprompter).
+  As gravações ficam na pasta que você escolheu.
 
 Ainda com problema? Avise quem te enviou o app ou abra um "issue" no GitHub.

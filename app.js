@@ -86,14 +86,16 @@ for (const [sw, val] of [
   ['disable-features', 'MediaRouter,DialMediaRouteProvider,OptimizationHints,Translate,AutofillServerCommunication,SpellcheckService,NetworkTimeServiceQuerying,WebRtcHideLocalIpsWithMdns'],
 ]) app.commandLine.appendSwitch(sw, val);
 
-// Pasta de dados (configurações, modelos de voz, último roteiro) em %LOCALAPPDATA%\Ghostprompter.
+// Pasta de dados (configurações, modelos de voz, último roteiro) em %LOCALAPPDATA%\RecordPlease.
 // Diferente de %APPDATA% (Roaming), a pasta Local não é sincronizada com servidor em perfis corporativos.
-// Quem usava a versão antiga (Roaming\gravador-teleprompter) tem os dados movidos na primeira abertura.
-// GHOSTPROMPTER_USERDATA permite usar outra pasta (útil para testes sem mexer nas suas configurações).
+// Quem usava versões anteriores tem os dados movidos na primeira abertura: primeiro de
+// %LOCALAPPDATA%\Ghostprompter (nome anterior do app), senão de Roaming\gravador-teleprompter.
+// RECORDPLEASE_USERDATA permite usar outra pasta (útil para testes sem mexer nas suas configurações).
 let usingLegacyData = false; // true = não deu para mover; o painel avisa
 {
-  const localData = path.join(process.env.LOCALAPPDATA || app.getPath('appData'), 'Ghostprompter');
-  const oldData = path.join(app.getPath('appData'), 'gravador-teleprompter');
+  const localRoot = process.env.LOCALAPPDATA || app.getPath('appData');
+  const localData = path.join(localRoot, 'RecordPlease');
+  const oldDirs = [path.join(localRoot, 'Ghostprompter'), path.join(app.getPath('appData'), 'gravador-teleprompter')];
   const countFiles = (d) => fs.readdirSync(d, { recursive: true, withFileTypes: true }).filter((e) => e.isFile()).length;
   // move a pasta; se estiver em outro disco/servidor, copia, confere e só então apaga a antiga
   const moveDir = (src, dst) => {
@@ -102,17 +104,20 @@ let usingLegacyData = false; // true = não deu para mover; o painel avisa
       try {
         fs.cpSync(src, dst, { recursive: true, errorOnExist: true, force: false });
         if (countFiles(src) !== countFiles(dst)) throw new Error('cópia incompleta');
-        fs.rmSync(src, { recursive: true, force: true });
-        return true;
       } catch { try { fs.rmSync(dst, { recursive: true, force: true }); } catch {} return false; }
+      // cópia conferida: a nova pasta vale. Se apagar a antiga falhar, ela só fica sobrando (nunca apaga a cópia).
+      try { fs.rmSync(src, { recursive: true, force: true }); } catch {}
+      return true;
     }
   };
   let dir = localData;
-  // (com GHOSTPROMPTER_USERDATA, usado em testes, nada é movido)
-  if (!process.env.GHOSTPROMPTER_USERDATA && !fs.existsSync(localData) && fs.existsSync(oldData)) {
-    if (!moveDir(oldData, localData)) { dir = oldData; usingLegacyData = true; }
+  // (com RECORDPLEASE_USERDATA, usado em testes, nada é movido)
+  const oldData = oldDirs.find((d) => fs.existsSync(d));
+  if (!process.env.RECORDPLEASE_USERDATA && !fs.existsSync(localData) && oldData) {
+    // se não der para mover, segue usando a pasta antiga; só avisa se for a Roaming (sincronizável)
+    if (!moveDir(oldData, localData)) { dir = oldData; usingLegacyData = oldData === oldDirs[1]; }
   }
-  app.setPath('userData', process.env.GHOSTPROMPTER_USERDATA || dir);
+  app.setPath('userData', process.env.RECORDPLEASE_USERDATA || dir);
 }
 
 // Na versão instalada, recusa abrir com opções de depuração (controle externo do app pelo depurador).
@@ -272,14 +277,14 @@ const SETTING_TYPES = {
   autoScroll: 'boolean', countdown: 'boolean', rememberScript: 'boolean',
   uiLang: 'string',
 };
-// Pasta padrão: Vídeos\Ghostprompter. Quem já usava a versão antiga continua na pasta de antes.
+// Pasta padrão: Vídeos\RecordPlease. Quem já usava uma versão anterior continua na pasta de antes.
 function outputDir() {
   if (settings.outputDir) return settings.outputDir;
-  const legacy = path.join(app.getPath('videos'), 'Gravacoes Teleprompter');
-  if (fs.existsSync(legacy)) return legacy;
   // se a pasta Vídeos estiver na nuvem (ex.: backup do OneDrive), o padrão vira uma pasta só local
   const videos = app.getPath('videos');
-  return path.join(cloudSyncName(videos) ? app.getPath('home') : videos, 'Ghostprompter');
+  const base = cloudSyncName(videos) ? app.getPath('home') : videos;
+  const legacy = [path.join(videos, 'Gravacoes Teleprompter'), path.join(base, 'Ghostprompter')].find((d) => fs.existsSync(d));
+  return legacy || path.join(base, 'RecordPlease');
 }
 const UI_LANGS = ['auto', ...I18N.LANGS];
 const applyUiLang = () => I18N.setLang(settings.uiLang || 'auto', app.getLocale());
@@ -331,7 +336,7 @@ const preload = path.join(__dirname, 'preload.js');
 function createControl() {
   controlWin = new BrowserWindow({
     width: 500, height: 900, minWidth: 420, minHeight: 500,
-    title: 'Ghostprompter',
+    title: 'RecordPlease',
     backgroundColor: '#14161b',
     autoHideMenuBar: true,
     webPreferences: { preload, contextIsolation: true, nodeIntegration: false, backgroundThrottling: false, spellcheck: false },
@@ -523,7 +528,7 @@ function registerIpc() {
   });
 
   ipcMain.handle('sources:get', async () => {
-    const own = ['Teleprompter', 'Ghostprompter', 'Gravador + Teleprompter', 'Câmera'];
+    const own = ['Teleprompter', 'RecordPlease', 'Ghostprompter', 'Gravador + Teleprompter', 'Câmera'];
     const sources = await desktopCapturer.getSources({
       types: ['screen', 'window'], thumbnailSize: { width: 320, height: 180 },
     });

@@ -16,7 +16,7 @@ contextBridge.executeInMainWorld({
 });
 
 contextBridge.exposeInMainWorld('api', {
-  testMode: process.env.GHOSTPROMPTER_TEST === '1',
+  testMode: process.env.RECORDPLEASE_TEST === '1',
 
   getUiLang: () => ipcRenderer.invoke('ui:lang'),
   getSettings: () => ipcRenderer.invoke('settings:get'),

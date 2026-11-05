@@ -1,4 +1,4 @@
-// Traduções da interface do Ghostprompter (pt = Português do Brasil, es = Español, en = English).
+// Traduções da interface do RecordPlease (pt = Português do Brasil, es = Español, en = English).
 // Funciona no navegador (window.I18N) e no processo principal (require).
 // Para adicionar um idioma: copie o bloco "en", traduza e inclua o código em LANGS.
 (function (root) {
@@ -30,7 +30,7 @@
       'autoScroll': 'Começar a rolar quando a gravação iniciar', 'countdown': 'Contagem regressiva de 3 s antes de gravar',
       'card.recording': 'Gravação', 'folder': 'Pasta:', 'chooseDir': 'Alterar pasta', 'openDir': 'Abrir pasta',
       'hideControl': 'Esconder esta janela da gravação também',
-      'cloud.warn': '⚠ Esta pasta é sincronizada com a nuvem ({name}). O Ghostprompter não envia nada, mas o {name} vai enviar as gravações para a internet. Para mantê-las só no computador, escolha outra pasta.',
+      'cloud.warn': '⚠ Esta pasta é sincronizada com a nuvem ({name}). O RecordPlease não envia nada, mas o {name} vai enviar as gravações para a internet. Para mantê-las só no computador, escolha outra pasta.',
       'rec.start': '● Gravar', 'rec.stop': '■ Parar', 'rec.pause': '❚❚ Pausar', 'rec.resume': '▶ Continuar',
       'st.chooseScreen': 'Escolha uma tela para gravar', 'st.noSysAudio': 'Áudio do sistema indisponível — gravando sem ele',
       'st.startingIn': 'Começando em {n}…', 'st.recording': '● Gravando', 'st.paused': '❚❚ Pausado',
@@ -74,7 +74,7 @@
       'err.suspended': 'o computador entrou em suspensão',
       'err.noData': 'o gravador parou de entregar dados para o disco',
       'st.interrupted': '⚠ Gravação interrompida: {msg}. O que foi gravado até ali está salvo.',
-      'data.legacy': '⚠ Não foi possível mover os dados do app para a pasta local (%LOCALAPPDATA%\\Ghostprompter); eles continuam em %APPDATA%\\gravador-teleprompter, que pode ser sincronizada em computadores de empresa. Feche outras cópias do app e abra de novo.',
+      'data.legacy': '⚠ Não foi possível mover os dados do app para a pasta local (%LOCALAPPDATA%\\RecordPlease); eles continuam em %APPDATA%\\gravador-teleprompter, que pode ser sincronizada em computadores de empresa. Feche outras cópias do app e abra de novo.',
       'file.session': 'Gravacao', 'file.screen': 'tela', 'file.camera': 'camera',
     },
     es: {
@@ -104,7 +104,7 @@
       'autoScroll': 'Empezar a desplazar cuando empiece la grabación', 'countdown': 'Cuenta regresiva de 3 s antes de grabar',
       'card.recording': 'Grabación', 'folder': 'Carpeta:', 'chooseDir': 'Cambiar carpeta', 'openDir': 'Abrir carpeta',
       'hideControl': 'Ocultar también esta ventana de la grabación',
-      'cloud.warn': '⚠ Esta carpeta se sincroniza con la nube ({name}). Ghostprompter no envía nada, pero {name} subirá las grabaciones a internet. Para mantenerlas solo en tu computadora, elige otra carpeta.',
+      'cloud.warn': '⚠ Esta carpeta se sincroniza con la nube ({name}). RecordPlease no envía nada, pero {name} subirá las grabaciones a internet. Para mantenerlas solo en tu computadora, elige otra carpeta.',
       'rec.start': '● Grabar', 'rec.stop': '■ Detener', 'rec.pause': '❚❚ Pausar', 'rec.resume': '▶ Continuar',
       'st.chooseScreen': 'Elige una pantalla para grabar', 'st.noSysAudio': 'Audio del sistema no disponible — grabando sin él',
       'st.startingIn': 'Empezando en {n}…', 'st.recording': '● Grabando', 'st.paused': '❚❚ En pausa',
@@ -148,7 +148,7 @@
       'err.suspended': 'la computadora entró en suspensión',
       'err.noData': 'el grabador dejó de entregar datos al disco',
       'st.interrupted': '⚠ Grabación interrumpida: {msg}. Lo grabado hasta ese momento está guardado.',
-      'data.legacy': '⚠ No se pudieron mover los datos de la app a la carpeta local (%LOCALAPPDATA%\\Ghostprompter); siguen en %APPDATA%\\gravador-teleprompter, que puede sincronizarse en computadoras de empresa. Cierra otras copias de la app y ábrela de nuevo.',
+      'data.legacy': '⚠ No se pudieron mover los datos de la app a la carpeta local (%LOCALAPPDATA%\\RecordPlease); siguen en %APPDATA%\\gravador-teleprompter, que puede sincronizarse en computadoras de empresa. Cierra otras copias de la app y ábrela de nuevo.',
       'file.session': 'Grabacion', 'file.screen': 'pantalla', 'file.camera': 'camara',
     },
     en: {
@@ -178,7 +178,7 @@
       'autoScroll': 'Start scrolling when recording starts', 'countdown': '3-second countdown before recording',
       'card.recording': 'Recording', 'folder': 'Folder:', 'chooseDir': 'Change folder', 'openDir': 'Open folder',
       'hideControl': 'Hide this window from the recording too',
-      'cloud.warn': '⚠ This folder is synced to the cloud ({name}). Ghostprompter sends nothing, but {name} will upload the recordings to the internet. To keep them only on this computer, choose another folder.',
+      'cloud.warn': '⚠ This folder is synced to the cloud ({name}). RecordPlease sends nothing, but {name} will upload the recordings to the internet. To keep them only on this computer, choose another folder.',
       'rec.start': '● Record', 'rec.stop': '■ Stop', 'rec.pause': '❚❚ Pause', 'rec.resume': '▶ Resume',
       'st.chooseScreen': 'Choose a screen to record', 'st.noSysAudio': 'System audio unavailable — recording without it',
       'st.startingIn': 'Starting in {n}…', 'st.recording': '● Recording', 'st.paused': '❚❚ Paused',
@@ -222,7 +222,7 @@
       'err.suspended': 'the computer went to sleep',
       'err.noData': 'the recorder stopped delivering data to the disk',
       'st.interrupted': '⚠ Recording interrupted: {msg}. Everything recorded up to that point is saved.',
-      'data.legacy': '⚠ The app data could not be moved to the local folder (%LOCALAPPDATA%\\Ghostprompter); it is still in %APPDATA%\\gravador-teleprompter, which may be synced on company computers. Close other copies of the app and open it again.',
+      'data.legacy': '⚠ The app data could not be moved to the local folder (%LOCALAPPDATA%\\RecordPlease); it is still in %APPDATA%\\gravador-teleprompter, which may be synced on company computers. Close other copies of the app and open it again.',
       'file.session': 'Recording', 'file.screen': 'screen', 'file.camera': 'camera',
     },
   };
