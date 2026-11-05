@@ -5,6 +5,8 @@ lectures and presentations.*
 
 **English** · [Português](#português) · [Español](#español)
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23966418.svg)](https://doi.org/10.5281/zenodo.23966418)
+
 <p align="center">
   <img src="docs/images/prompter-follow-voice.gif" alt="The teleprompter following the speaker's voice: words already read are dimmed and the current line stays on the guide" width="640">
   <br><em>"Follow my voice": the script scrolls with your speech, offline. Words already read are dimmed; cues like (next slide) are skipped.</em>
@@ -145,7 +147,7 @@ If this software is useful in your work, please cite it (GitHub shows a *Cite th
 [CITATION.cff](CITATION.cff)):
 
 > Bei, L. (2026). *Ghostprompter: a voice-following teleprompter and screen/webcam recorder for lectures and
-> presentations* (Version 1.2.1) [Software]. https://github.com/luisbei/ghostprompter.
+> presentations* (Version 1.2.1) [Software]. Zenodo. https://doi.org/10.5281/zenodo.23966418
 > ORCID: [0009-0002-4650-9948](https://orcid.org/0009-0002-4650-9948)
 
 ## AI use statement
@@ -290,7 +292,7 @@ Se este software for útil no seu trabalho, cite-o (o GitHub mostra o botão *Ci
 [CITATION.cff](CITATION.cff)):
 
 > Bei, L. (2026). *Ghostprompter: a voice-following teleprompter and screen/webcam recorder for lectures and
-> presentations* (Versão 1.2.1) [Software]. https://github.com/luisbei/ghostprompter.
+> presentations* (Versão 1.2.1) [Software]. Zenodo. https://doi.org/10.5281/zenodo.23966418
 > ORCID: [0009-0002-4650-9948](https://orcid.org/0009-0002-4650-9948)
 
 ### Declaração de uso de IA

@@ -10,6 +10,7 @@ authors:
   - given-names: Luis
     family-names: Bei
     orcid: "https://orcid.org/0009-0002-4650-9948"
+doi: 10.5281/zenodo.23966418
 repository-code: "https://github.com/luisbei/ghostprompter"
 url: "https://github.com/luisbei/ghostprompter"
 version: 1.2.1
